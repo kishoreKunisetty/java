@@ -1,0 +1,21 @@
+import java.util.*;
+class main{
+public static void main (String[] args){
+Scanner sc=new Scanner(System.in);
+int n=sc.nextInt();
+int sum=9,r=0,a=1,p=0,b=1,oct=0;
+while(n>0){
+r=n%10;
+sum+=r*a;
+a*=2;
+n/=10;
+			}
+while(sum>0){
+	p=sum%8;
+	oct+=p*b;
+	b*=10;
+	sum/=8;
+	}
+	System.out.println(oct);
+}
+}

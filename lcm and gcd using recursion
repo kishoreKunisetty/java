@@ -1,0 +1,16 @@
+import java.util.*;
+class main{
+  static int gcd(int a,int b){
+    if(a==0)return b;
+  return gcd(b%a,a);
+  }
+  static int lcm(int a,int b){
+  return (a*b)/gcd(a,b);}
+  public static void main(String[] args){
+  Scanner sc=new Scanner(System.in);
+  int a=sc.nextInt();
+  int b=sc.nextInt();
+  System.out.println("GCD of the two numbers is:"+gcd(a,b));
+  System.out.println("LCM of the two numbers is:"+lcm(a,b));
+  }
+ }

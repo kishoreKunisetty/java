@@ -1,0 +1,30 @@
+import java.util.Scanner;
+class Solution {
+  public static void solve(Scanner input, int a, int b) {
+    int m = (a + b) / 2;
+    System.out.println(m);
+    System.out.println("enter its \"TOO_SMALL or not or CORRECT\" guess ");
+    String s = input.next();
+    if (s.equals("CORRECT")) {
+        System.out.println(m+" is the number ");
+      return;
+    } else if (s.equals("TOO_SMALL")) {
+      solve(input, m + 1, b);
+    } else {
+      solve(input, a, m - 1);
+    }
+  }
+ public static void main(String args[]) {
+    Scanner input = new Scanner(System.in);
+    System.out.println("Enter the number of test cases:");
+    int T = input.nextInt();
+    for (int ks = 1; ks <= T; ks++) {
+      System.out.println("Enter the lower limt :");
+      int a = input.nextInt();
+      System.out.println("Enter the upper limt:");
+      int b = input.nextInt();
+      solve(input, a + 1, b);
+    }
+  }
+}
+

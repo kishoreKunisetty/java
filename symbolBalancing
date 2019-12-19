@@ -1,0 +1,77 @@
+import java.util.*;
+class main{
+    static char ch[]=new char[5];
+    static int top=-1;
+    static void push(char s){
+        if(top==4){
+            System.out.println("stack is full");
+        }
+        else{
+            top++;
+            ch[top]=s;
+        }
+    }
+    static void pop(){
+       if(top==-1)
+           System.out.println("stack is empty");
+        else{
+            top--;
+        }
+    }
+    static boolean isopen(char c){
+        char arr[]={'{','(','['};
+        int count=0;
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]==c){
+                count++;break;
+            }
+        }
+        if(count!=0)
+            return true;
+        else
+            return false;
+    }
+    static boolean ispair(char d){
+        char a1[]={'{','(','['};
+        char a2[]={'}',')',']'};
+        int temp1=-1,temp2=-2;
+        for(int i=0;i<a1.length;i++){
+            if(ch[top]==a1[i]){
+                temp1=i;break;
+            }
+        }
+        for(int i=0;i<a2.length;i++){
+            if(d==a2[i]){
+                temp2=i;break;
+            }
+        }
+        if(temp1==temp2)
+            return true;
+        else
+            return false;
+    }
+    static boolean isempty(){
+        if (top==-1)
+            return true;
+        else
+            return false;
+    }
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter the string:");
+        String s=sc.nextLine();
+        for(int i=0;i<s.length();i++){
+            char a=s.charAt(i);
+            if(isopen(a))
+                push(a);
+            else if(ispair(a))
+                pop();
+            else
+            { System.out.println("String is not balenced");break;}
+        }
+       if(isempty())
+           System.out.println("the given string is balanced.");
+        else
+            System.out.println("the given string is not balanced.");
+    }
+}
